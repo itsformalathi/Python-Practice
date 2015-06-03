@@ -2,18 +2,24 @@
 
 Start = 1
 Limit = 100
-sum1 = 0
-sum2 = 0
 
 def Square(i):
     return (i * i)
-def Sum2(sum1):
+
+def Sum2(Start, Limit):
+    sum = 0
     for i in range(Start, Limit+1):
-        sum1 += i
-    return Square(sum1)    
-def Sum1(sum2):
+        sum += i
+    return Square(sum)    
+
+def Sum1(Start, Limit):
+    sum = 0
     for i in range(Start, Limit+1):
-        sum2 += Square(i)
-    return sum2
-diff = (Sum1(sum1) - Sum2(sum1))
-print (diff)
+        sum += Square(i)
+    return sum
+
+def main():
+    diff = (Sum1(Start, Limit) - Sum2(Start, Limit))
+    print (diff)
+
+main()
