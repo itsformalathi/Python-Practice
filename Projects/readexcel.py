@@ -63,7 +63,7 @@ def GetData(filename, pickle_file):
         with open('my_pickle', 'wb') as f:
            data1 = ExtractdatafromExcel(filename)
            data1 = PreprocessedData(data1)
-           dic = pickle.dump(data1, f)
+           data = pickle.dump(data1, f)
     return data1       
 
 """ Defining data structures required """    
