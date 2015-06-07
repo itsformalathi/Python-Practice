@@ -2,9 +2,9 @@
 #https://www.reddit.com/r/dailyprogrammer/comments/33ow0c/20150424_challenge_211_hard_hungry_puppies/
 
 from random import randint
-import itertools
+import itertools, sys
 
-def ExtractPermutationList(number):
+def GeneratePermutationList(number):
     number_list = list(number)
     perm_list = list(itertools.permutations(number_list, len(number)))
     return perm_list
@@ -15,10 +15,14 @@ def Happiness_count(number):
         prev = "0" if i == 0 else number[i-1]
         next = number[i-1] if i == len(number)-1 else number[i+1]
         me = number[i]
-        if me < next and me < prev:  
+        if me < next < prev:  
            count += -1
-        elif me > next and me > prev:
+        elif me > next > prev:
            count += 1
+        """ if me < next and me < prev:
+             count += -1
+           elif me > next and me > prev:
+             count += 1 """
     return count
 
 def HappinessCount_list(perm_list):
@@ -28,7 +32,7 @@ def HappinessCount_list(perm_list):
     return count_list    
 
 def Maximum_Happiness(number):
-    perm_list = ExtractPermutationList(number)
+    perm_list = GeneratePermutationList(number)
     count_list = []
     count_list = HappinessCount_list(perm_list)
     maximum = max(count_list)
@@ -39,8 +43,9 @@ def Maximum_Happiness(number):
            return key    
 
 def main():
-    number = input("input your treat: ")
+    number = sys.argv[1]
     number = list(number)
     print(Maximum_Happiness(number))
     
 main()
+
