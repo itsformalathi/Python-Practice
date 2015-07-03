@@ -1,7 +1,7 @@
 #Extract a Review from Flipkart.com and Analyse the Sentiment using Alchemy API
 #About alchemy api -  http://www.alchemyapi.com/products/alchemylanguage/sentiment-analysis
 
-import lxml, requests, pickle
+import requests, pickle
 from bs4 import BeautifulSoup as BS
 from alchemyapi import AlchemyAPI
 alchemyapi = AlchemyAPI()

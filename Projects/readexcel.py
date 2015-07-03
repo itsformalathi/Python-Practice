@@ -56,6 +56,7 @@ def ExtractdatafromExcel(filename):
     return data
 
 def GetData(filename, pickle_file):
+    """ writing the extracted content from excel file to a pickle file to avoid multiple processing """
     if os.path.isfile(pickle_file): 
         with open (pickle_file, 'rb') as f: 
              data1 = pickle.load(f)
@@ -66,9 +67,8 @@ def GetData(filename, pickle_file):
            data = pickle.dump(data1, f)
     return data1       
 
-""" Defining data structures required """    
-
 def PreprocessedData(data1):
+    """ defines the required data structures from extracted data from Excel file """
     data1 = ExtractdatafromExcel(filename)
     transposed = [[row[idx] for row in data1] for idx in range(len(data1[0]))]
          
