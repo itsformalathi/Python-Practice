@@ -22,7 +22,7 @@ def randomCol(board):
     return randint(0, len(board[0]) - 1)
 
 def guessYourChoice(board, ship_row, ship_col):
-        """ Get the choice from player and check it whether the guess is correct and print the corresponding output"""
+        """ Get the choice from player and check whether the guess is correct and print the corresponding output"""
         printBoard(board)
         guess_row = int(input("Guess Row:"))
         guess_col = int(input("Guess Col:"))
